@@ -3,7 +3,7 @@ import pathlib
 
 yt = None
 p = None
-path = r"put path you want to save here"
+path = r"insert file path here"
 
 def download_audio_file(yt_streams, folder):
     yt.streams.get_audio_only().download(output_path=folder, mp3=True)
@@ -22,6 +22,10 @@ def downloader(resolution, file_format, yt_link):
     if r'playlist?list=' in yt_link:
         playlist_downloader(resolution, file_format, yt_link)
     else:
+        '''yt = YouTube(yt_link, client='WEB_EMBED',
+        use_oauth=True,
+        allow_oauth_cache=True,
+        )'''
         yt = YouTube(yt_link)
 
         new_dir = pathlib.Path(path, yt.title)
